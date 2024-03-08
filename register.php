@@ -22,11 +22,10 @@
         // check if the username is not on the database
         if($count_username == 0 || $count_email == 0){
             //makes the password into a hash to prevent from hacking
-            $hash = password_hash($password, PASSWORD_DEFAULT);
+           //$hash = password_hash($password, PASSWORD_DEFAULT);
             //inserts the inputs on the data base
-            $sql = "insert into users(username, email, password) values ('$username', '$email', '$hash')";
+            $sql = "insert into users(username, email, password) values ('$username', '$email', '$password')";
             $result = mysqli_query($conn, $sql);
-            $count_email = mysqli_num_rows($result);
             echo '<script>
                     window.location.href = "login.php";
                     alert("Register Sucessful! Please Login.")
